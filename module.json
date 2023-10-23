@@ -1,0 +1,14 @@
+{
+    "name": "Hestia",
+    "alias": "hestia",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "App\\Services\\Hestia\\Providers\\HestiaServiceProvider"
+    ],
+    "aliases": {
+        "HestiaAPI": "App\\Services\\Hestia\\HestiaAPI"
+    },
+    "files": []
+}

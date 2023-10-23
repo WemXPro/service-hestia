@@ -1,0 +1,23 @@
+{
+    "name": "wemx/service-hestia",
+    "description": "",
+    "authors": [
+        {
+            "name": "WemX",
+            "email": "info@wemx.net"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Services\\Hestia\\": ""
+        }
+    }
+}
