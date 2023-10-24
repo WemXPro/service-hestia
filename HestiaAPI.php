@@ -28,11 +28,11 @@ class HestiaAPI
                 $hestiaUser = ServiceAccount::where('order_id', $order->id)->first();
                 $user = self::api()->getModuleUser()->detail($hestiaUser->username);
 
-                $quato = ($user['DISK_QUOTA'] == 'unlimited') ? 9999 : $user['DISK_QUOTA'];
+                $quota = ($user['DISK_QUOTA'] == 'unlimited') ? 9999 : $user['DISK_QUOTA'];
                 $bandwith = ($user['BANDWIDTH'] == 'unlimited') ? 9999 : $user['BANDWIDTH'];
 
-                $user['U_DISK_%'] = ($user['U_DISK'] != 0) ? ($user['U_DISK'] / $quota) * 100 : 0;
-                $user['U_BANDWIDTH_%'] = ($user['U_BANDWIDTH'] != 0) ? ($user['U_BANDWIDTH'] / $bandwith) * 100 : 0;
+                $user['U_DISK_%'] = ($user['U_DISK'] !== "0") ? ($user['U_DISK'] / $quota) * 100 : 0;
+                $user['U_BANDWIDTH_%'] = ($user['U_BANDWIDTH'] !== "0") ? ($user['U_BANDWIDTH'] / $bandwith) * 100 : 0;
                 $user['USERNAME'] = $hestiaUser->username;
                 Cache::put("{$order->id}::hestia::user", $user, 3600);
             } catch(\Exception $error) {
