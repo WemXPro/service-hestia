@@ -174,8 +174,28 @@ class Service implements ServiceInterface
     }
 
     /**
+     * This function is responsible for upgrading or downgrading an instance of
+     * the service. This method is called when a order is upgraded or downgraded
+     * 
+     * @return void
+    */
+    public function upgrade(Package $oldPackage, Package $newPackage)
+    {
+        $user = $this->order->user;
+        try {
+
+            $hestiaUser = ServiceAccount::where('order_id', $this->order->id)->first();
+            self::api()->getModuleUser()->changeUserPackage($hestiaUser->username, $newPackage->data('package'));
+
+        } catch(\Exception $error) {
+            ErrorLog("hestia::suspend::service", "[Hestia] Hestia failed to suspend $user->username Error: {$error->getMessage()}", 'CRITICAL');
+        }
+    }
+
+    /**
      * This function is responsible for creating an instance of the
      * service. This can be anything such as a server, vps or any other instance.
+     * 
      * @return void
      */
     public function create(array $data = [])
