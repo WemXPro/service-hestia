@@ -221,8 +221,8 @@ class Service implements ServiceInterface
                 'user_id' => $user->id,
                 'order_id' => $order->id,
                 'service' => 'hestia',
+                'external_id' => $username,
                 'username' => $username,
-                'email' => $user->email,
                 'password' => encrypt($password),
             ]);
 
