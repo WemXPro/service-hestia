@@ -7,7 +7,7 @@ https://hestiacp.com/
 # Installation
 1. Download this Github repository as a zip file
 2. Locate folder `/var/www/wemx/app/Services` and create a new Folder called `Hestia`
-3. Open the zip hestia zip file, then open `service-hestia-main` and upload all the Hestia files to the newly created Hestia folder
+3. Open the zip hestia zip file, then open `service-hestia-main` and upload all the Hestia files to the newly created `/var/www/wemx/app/Services/Hestia` folder
 4. Make sure to install the hestia dependencies using command `cd /var/www/wemx && php artisan module:update`
    
 
