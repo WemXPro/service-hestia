@@ -165,21 +165,4 @@ class HestiaServiceController extends Controller
 
         return redirect()->back()->withSuccess("Your backup has been adding to the queue. You will receive an email once its done.");
     }
-
-    public function changePassword(Request $request, Order $order)
-    {
-        $validated = $request->validate([
-            'password' => ['required', 'confirmed'],
-        ]);
-
-        try {
-            HestiaAPI::api()->getModuleUser()->changePassword(HestiaAPI::user($order)->get('USERNAME'), $request->input('password'));
-            ServiceAccount::where('order_id', $order->id)->update(['password' => encrypt($request->input('password'))]);
-
-        } catch(\Exception $error) {
-            return redirect()->back()->withError("Something went wrong, please try again.");
-        }
-
-        return redirect()->back()->withSuccess("Password has been changed");
-    }
 }

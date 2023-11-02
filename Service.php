@@ -226,7 +226,7 @@ class Service implements ServiceInterface
                 'password' => encrypt($password),
             ]);
 
-            $this->emailDetails($user, $password);
+            $this->emailDetails($user, $username, $password);
 
             // create the domain on hestia if specified in order
             if($order->domain) {
@@ -237,14 +237,13 @@ class Service implements ServiceInterface
         }
     }
 
-    protected function emailDetails($user, $password): void
+    protected function emailDetails($user, $username, $password): void
     {
         $user->email([
             'subject' => 'Hestia Account',
             'content' => "
                 Your Hestia Account details: <br> <br>
-                - Email: {$user->email} <br>
-                - Username: {$user->username} <br>
+                - Username: {$username} <br>
                 - Password: {$password} <br>
             ",
             'button' => [
@@ -302,6 +301,23 @@ class Service implements ServiceInterface
         } catch(\Exception $error) {
             ErrorLog("hestia::terminate::service", "[Hestia] Hestia failed to delete $user->username Error: {$error->getMessage()}", 'CRITICAL');
         }
+    }
+    
+    /**
+     * Change the Hestia password
+     * 
+    */
+    public function changePassword(Order $order, string $newPassword)
+    {
+        try {
+            HestiaAPI::api()->getModuleUser()->changePassword(HestiaAPI::user($order)->get('USERNAME'), $newPassword);
+            $order->updateExternalPassword($newPassword);
+
+        } catch(\Exception $error) {
+            return redirect()->back()->withError("Something went wrong, please try again.");
+        }
+
+        return redirect()->back()->withSuccess("Password has been changed");
     }
 
     /**
