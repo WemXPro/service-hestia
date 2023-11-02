@@ -4,6 +4,11 @@ Full hestia integration with WemX
 Hestia Control Panel is designed to provide administrators an easy to use web and command line interface, enabling them to quickly deploy and manage web domains, mail accounts, DNS zones, and databases from one central dashboard without the hassle of manually deploying and configuring individual components or services. 
 https://hestiacp.com/
 
+# Install HestiaCP
+
+***Hestia needs to be installed on a SEPARATE and NEW VPS/Machine***
+https://hestiacp.com/install.html
+
 # Installation
 1. Download this Github repository as a zip file
 2. Locate folder `/var/www/wemx/app/Services` and create a new Folder called `Hestia`
