@@ -17,7 +17,7 @@ class HestiaAPI
         $credentials = new Credentials(settings('hestia::username'), settings('encrypted::hestia::password'));
         $hostname = settings('hestia::hostname');
         $port = settings('hestia::port', 8083);
-        $host = new Host("https://{$hostname}", $credentials, $port);
+        $host = new Host($hostname, $credentials, $port);
         return new Client($host);
     }
 

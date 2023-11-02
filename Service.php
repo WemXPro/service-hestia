@@ -53,15 +53,16 @@ class Service implements ServiceInterface
             [
                 "key" => "hestia::hostname",
                 "name" => "Hostname",
-                "description" => "The hostname of your Hestia Panel i.e panel.example.com:8083",
-                "type" => "text", // text, textarea, password, number, date, checkbox, url, email, select
+                "description" => "The hostname of your Hestia Panel i.e https://panel.example.com",
+                "type" => "url", // text, textarea, password, number, date, checkbox, url, email, select
                 "rules" => ['required'], // laravel validation rules
             ],
             [
                 "key" => "hestia::port",
                 "name" => "Port",
-                "description" => "The port of your Hestia Panel i.e panel.example.com:8083",
+                "description" => "The port of your Hestia Panel i.e 8083, set to 443 if you don't use any port",
                 "type" => "number", // text, textarea, password, number, date, checkbox, url, email, select
+                "default_value" => 8083,
                 "rules" => ['required', 'numeric'], // laravel validation rules
             ],
             [
@@ -324,8 +325,23 @@ class Service implements ServiceInterface
      * Initiate a connection with the Hestia API
      * 
     */
-    protected static function api(array $data = [])
+    protected static function api()
     {
         return HestiaAPI::api();
+    }
+
+    /**
+     * Test API connection
+     * 
+    */
+    public static function testConnection()
+    {
+        try {
+            self::api()->getModuleUser()->listUserPackages();
+        } catch(\Exception $error) {
+            return redirect()->back()->withError("Failed to connect to Hestia. <br><br>[Hestia] {$error->getMessage()}");
+        }
+
+        return redirect()->back()->withSuccess("Successfully connected with Hestia");
     }
 }
