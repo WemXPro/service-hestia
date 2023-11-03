@@ -138,7 +138,7 @@ class Service implements ServiceInterface
             [
                 "name" => "Login to Hestia",
                 "color" => "primary",
-                "href" => 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port')
+                "href" => settings('hestia::hostname') . ':' . settings('hestia::port')
             ],
         ];    
     }
@@ -249,7 +249,7 @@ class Service implements ServiceInterface
             ",
             'button' => [
                 'name' => 'Hestia Panel',
-                'url' => 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port'),
+                'url' => settings('hestia::hostname') . ':' . settings('hestia::port'),
             ],
         ]);
     }
