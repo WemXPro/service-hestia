@@ -59,7 +59,7 @@
                         {{ $address['AUTOREPLY'] }}
                     </td>
                     <td class="px-6 py-4 text-right">
-                        <a href="{{ 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/mail/' }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View <i class='bx bx-link-external'></i></a></a>
+                        <a href="{{ settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/mail/' }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View <i class='bx bx-link-external'></i></a></a>
                     </td>
                 </tr>
                 @endforeach
