@@ -58,7 +58,7 @@
                     {{ $domain->U_BANDWIDTH }} MB
                 </td>
                 <td class="px-6 py-4 text-right">
-                    <a href="{{ 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/web/' }}" class="ml-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">View <i class='bx bx-link-external'></i></a>
+                    <a href="{{ settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/web/' }}" class="ml-2 font-medium text-blue-600 dark:text-blue-500 hover:underline">View <i class='bx bx-link-external'></i></a>
                 </td>
             </tr>
             @endforeach
