@@ -4,7 +4,7 @@
 
     <div class="flex flex-wrap ">
         <div class="w-1/2 md:w-1/4 pr-4 pl-4 mb-4">
-            <a href="{{ 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port'). '/fm/#/' }}" target="_blank" class="flex flex-col items-center justify-center">
+            <a href="{{ settings('hestia::hostname') . ':' . settings('hestia::port'). '/fm/#/' }}" target="_blank" class="flex flex-col items-center justify-center">
                 <div class="flex justify-center items-center mb-2 w-10 h-10 bg-primary-100 rounded dark:bg-primary-900 lg:h-16 lg:w-16">
                     <span class="flex items-center text-primary-600 dark:text-primary-300 lg:w-8 lg:h-8 bx-md">
                         <i class='bx bxs-folder-open'></i>
@@ -34,7 +34,7 @@
             </a>
         </div>
         <div class="w-1/2 md:w-1/4 pr-4 pl-4 mb-4">
-            <a href="{{ 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/dns/' }}" target="_blank" class="flex flex-col items-center justify-center">
+            <a href="{{ settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/dns/' }}" target="_blank" class="flex flex-col items-center justify-center">
                 <div class="flex justify-center items-center mb-2 w-10 h-10 bg-primary-100 rounded dark:bg-primary-900 lg:h-16 lg:w-16">
                     <span class="flex items-center justify-center text-primary-600 dark:text-primary-300 lg:w-8 lg:h-8 bx-md">
                         <i class='bx bxs-cog'></i>
@@ -44,7 +44,7 @@
             </a>
         </div>
         <div class="w-1/2 md:w-1/4 pr-4 pl-4 mb-4">
-            <a href="{{ 'https://'. settings('hestia::hostname') . '/phpmyadmin' }}" class="flex flex-col items-center justify-center">
+            <a href="{{ settings('hestia::hostname') . '/phpmyadmin' }}" class="flex flex-col items-center justify-center">
                 <div class="flex justify-center items-center mb-2 w-10 h-10 bg-primary-100 rounded dark:bg-primary-900 lg:h-16 lg:w-16">
                     <span class="flex items-center justify-center text-primary-600 dark:text-primary-300 lg:w-8 lg:h-8 bx-md">
                         <i class='bx bx-code-block'></i>
@@ -54,7 +54,7 @@
             </a>
         </div>
         <div class="w-1/2 md:w-1/4 pr-4 pl-4 mb-4">
-            <a href="{{ 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/stats/' }}" target="_blank" class="flex flex-col items-center justify-center">
+            <a href="{{ settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/stats/' }}" target="_blank" class="flex flex-col items-center justify-center">
                 <div class="flex justify-center items-center mb-2 w-10 h-10 bg-primary-100 rounded dark:bg-primary-900 lg:h-16 lg:w-16">
                     <span class="flex items-center justify-center text-primary-600 dark:text-primary-300 lg:w-8 lg:h-8 bx-md">
                         <i class='bx bxs-bar-chart-square' ></i>            
@@ -64,7 +64,7 @@
             </a>
         </div>
         <div class="w-1/2 md:w-1/4 pr-4 pl-4 mb-4">
-            <a href="{{ 'https://'. settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/cron/' }}" target="_blank" class="flex flex-col items-center justify-center">
+            <a href="{{ settings('hestia::hostname') . ':' . settings('hestia::port'). '/list/cron/' }}" target="_blank" class="flex flex-col items-center justify-center">
                 <div class="flex justify-center items-center mb-2 w-10 h-10 bg-primary-100 rounded dark:bg-primary-900 lg:h-16 lg:w-16">
                     <span class="flex items-center justify-center text-primary-600 dark:text-primary-300 lg:w-8 lg:h-8 bx-md">
                         <i class='bx bxs-time' ></i>          
