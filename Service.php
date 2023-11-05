@@ -189,7 +189,7 @@ class Service implements ServiceInterface
             self::api()->getModuleUser()->changeUserPackage($hestiaUser->username, $newPackage->data('package'));
 
         } catch(\Exception $error) {
-            ErrorLog("hestia::suspend::service", "[Hestia] Hestia failed to suspend $user->username Error: {$error->getMessage()}", 'CRITICAL');
+            ErrorLog("hestia::suspend::service", "[Hestia] Hestia failed to Upgrade for user $user->username  and order #{$this->order->id} Error: {$error->getMessage()}", 'CRITICAL');
         }
     }
 
