@@ -175,6 +175,50 @@ class Service implements ServiceInterface
     }
 
     /**
+     * Define custom permissions for this service
+     *
+     * @return array
+     */
+    public static function permissions(): array
+    {
+        return [
+            'hestia.change-password' => [
+                'description' => 'Permission to change the password of the Hestia user that belongs to this order',
+            ],
+            'hestia.domains.view' => [
+                'description' => 'Permission to view the domains section',
+            ],
+            'hestia.domains.create' => [
+                'description' => 'Permission to create new domains',
+            ],
+            'hestia.domains.create-ftp' => [
+                'description' => 'Permission to create FTP accounts for any domain',
+            ],
+            'hestia.mail.view' => [
+                'description' => 'Permission to view the mail section',
+            ],
+            'hestia.mail.create' => [
+                'description' => 'Permission to create new e-mail addresses for any domain',
+            ],
+            'hestia.mail.domain.create' => [
+                'description' => 'Permission to create new mail domains',
+            ],
+            'hestia.databases.view' => [
+                'description' => 'Permission to view the databases section',
+            ],
+            'hestia.databases.create' => [
+                'description' => 'Permission to create new databases',
+            ],
+            'hestia.backups.view' => [
+                'description' => 'Permission view the backups section',
+            ],
+            'hestia.backups.create' => [
+                'description' => 'Permission to create new backups',
+            ],
+        ];
+    }
+
+    /**
      * This function is responsible for upgrading or downgrading an instance of
      * the service. This method is called when a order is upgraded or downgraded
      * 
